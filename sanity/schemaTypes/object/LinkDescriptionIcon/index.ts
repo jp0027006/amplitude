@@ -13,6 +13,38 @@ const linkCategory = [
     title: 'Data',
     value: 'data',
   },
+  {
+    title: 'Industry',
+    value: 'industry',
+  },
+  {
+    title: 'Use Case',
+    value: 'usecase',
+  },
+  {
+    title: 'Team',
+    value: 'team',
+  },
+  {
+    title: 'Size',
+    value: 'size',
+  },
+  {
+    title: 'Learn',
+    value: 'learn',
+  },
+  {
+    title: 'Connect',
+    value: 'connect',
+  },
+  {
+    title: 'Support & Services',
+    value: 'support & services',
+  },
+  {
+    title: 'Tools',
+    value: 'tools',
+  },
 ]
 
 export default {

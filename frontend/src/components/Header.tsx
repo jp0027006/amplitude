@@ -4,6 +4,7 @@ import Link from "next/link";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 import { HeaderProps } from "@/types/header";
+import CTA from "../app/views/CTA";
 
 const builder = imageUrlBuilder(client);
 
@@ -47,7 +48,9 @@ function Header({ headeritems }: HeaderProps) {
                       href={navItem.link?.link}
                       className="block py-2 px-3 rounded-sm md:bg-transparent md:p-0"
                     >
-                      <span>{navItem.title}</span>
+                      <span className="hover:text-blue-600">
+                        {navItem.title}
+                      </span>
                     </Link>
                   </li>
                 );
@@ -60,53 +63,60 @@ function Header({ headeritems }: HeaderProps) {
           <div onMouseLeave={() => setHoveredNavItem(null)}>
             {headeritems.navItems.map((navItem, navItemIndex) => (
               <div key={navItemIndex}>
-                {/* Hover Dropdown Menu */}
+                {/* Hover Menu */}
                 {navItem.navhoverItems && hoveredNavItem === navItemIndex && (
-                  <div key={navItemIndex} className="absolute left-0 top-16 mt-2 w-[1535px] bg-white border border-gray-200 p-6 px-20 flex gap-8">
+                  <div
+                    key={navItemIndex}
+                    className="absolute left-0 top-16 mt-2 w-[1535px] bg-white border border-gray-200 p-6 px-20 flex gap-8"
+                  >
                     {navItem.navhoverItems.map((hoverItem, hoverIndex) => (
                       <div key={hoverIndex} className="flex flex-row gap-10">
-                        <div
-                          key={hoverIndex}
-                          className="flex flex-col card rounded-tr-2xl rounded-bl-2xl w-72"
-                        >
-                          {/* Hover Image */}
-                          {hoverItem.hoverImage &&
-                            hoverItem.hoverImage.asset && (
-                              <img
-                                src={urlFor(
-                                  hoverItem.hoverImage.asset._ref
-                                    ? {
-                                        asset: {
-                                          _ref: hoverItem.hoverImage.asset._ref,
-                                        },
-                                      }
-                                    : undefined
-                                )}
-                                alt={hoverItem.hoverImage.alt || "Hover image"}
-                                className="w-full"
-                                width="100"
-                                height="100"
-                              />
-                            )}
-                          <div className="px-6 py-4 flex flex-col gap-2">
-                            <h1 className="font-medium text-[22px] leading-[26px]">
-                              {hoverItem.hoverTitle}
-                            </h1>
-                            <span className="text-[14px] leading-[20px]">
-                              {hoverItem.hoverDescription}
-                            </span>
-                            <Link
-                              href={hoverItem.hoverButton.link.link}
-                              className="mt-4 inline-block text-blue-600 font-semibold text-base"
-                            >
-                              {hoverItem.hoverButton.label}
-                            </Link>
+                        {hoverItem.hoverImage && hoverItem.hoverImage.asset && (
+                          <div
+                            key={hoverIndex}
+                            className="flex flex-col card rounded-tr-2xl rounded-bl-2xl w-72"
+                          >
+                            {hoverItem.hoverImage &&
+                              hoverItem.hoverImage.asset && (
+                                <img
+                                  src={urlFor(
+                                    hoverItem.hoverImage.asset._ref
+                                      ? {
+                                          asset: {
+                                            _ref: hoverItem.hoverImage.asset
+                                              ._ref,
+                                          },
+                                        }
+                                      : undefined
+                                  )}
+                                  alt={
+                                    hoverItem.hoverImage.alt || "Hover image"
+                                  }
+                                  className="w-full"
+                                  width="100"
+                                  height="100"
+                                />
+                              )}
+                            <div className="px-6 py-4 flex flex-col gap-2">
+                              <h1 className="font-medium text-[22px] leading-[26px]">
+                                {hoverItem.hoverTitle}
+                              </h1>
+                              <span className="text-[14px] leading-[20px]">
+                                {hoverItem.hoverDescription}
+                              </span>
+                              <Link
+                                href={hoverItem.hoverButton.link?.link || "/"}
+                                className="mt-4 inline-block text-blue-600 font-semibold text-base"
+                              >
+                                {hoverItem.hoverButton.label}
+                              </Link>
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         <div className="flex flex-row">
                           <div>
-                            <div className="flex w-full flex-col gap-16 lg:flex-row">
+                            <div className="flex w-full flex-col gap-8 lg:flex-row">
                               {hoverItem.LinkDescriptionIcon &&
                                 Object.entries(
                                   hoverItem.LinkDescriptionIcon.reduce(
@@ -176,36 +186,9 @@ function Header({ headeritems }: HeaderProps) {
           </div>
         )}
 
-        {/* Nav Buttons */}
-        {headeritems.navButtons && (
-          <div className="hidden w-full md:block md:w-auto ml-auto">
-            <ul className="font-semibold flex items-center flex-col p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-              {headeritems.navButtons.map((navButton, navButtonIndex) => {
-                return (
-                  <li key={navButtonIndex} className={`relative rounded-full`}>
-                    <Link
-                      href={navButton.button.link.link}
-                      className={`block rounded-full px-4 py-2
-                        ${navButton.button.variant === "transparent" ? "" : ""}
-                        ${
-                          navButton.button.variant === "outline"
-                            ? "border border-blue-600 text-blue-600 bg-transparent hover:bg-gray-200"
-                            : ""
-                        }
-                        ${
-                          navButton.button.variant === "blue"
-                            ? "bg-blue-600 text-white hover:bg-blue-800"
-                            : ""
-                        }`}
-                    >
-                      <span>{navButton.button.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
+        {/* CTA */}
+        <CTA headeritems={headeritems}/>
+
       </div>
     </nav>
   );

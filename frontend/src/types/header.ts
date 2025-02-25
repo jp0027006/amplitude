@@ -43,7 +43,7 @@ export interface navhoverItemType {
   hoverButton: {
     _type: "button";
     label?: string;
-    link: {
+    link?: {
       _type: "link";
       link: string;
     };
