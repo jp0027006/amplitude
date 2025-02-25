@@ -1,4 +1,4 @@
-import { HeaderProps } from "@/types/header";
+import { HeaderProps } from "@/types/header/header";
 import Link from "next/link";
 
 export default function CTA({ headeritems }: HeaderProps) {

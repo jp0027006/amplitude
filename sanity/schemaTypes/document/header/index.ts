@@ -23,7 +23,7 @@ export default {
     },
     {
       name: 'navButtons',
-      title: 'Nav Buttons',
+      title: 'CTA',
       type: 'array',
       of: [{type: 'navButtons'}],
     },

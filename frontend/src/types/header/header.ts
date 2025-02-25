@@ -20,3 +20,17 @@ export interface HeaderType {
 export interface HeaderProps {
   headeritems: HeaderType;
 }
+
+{
+  /* Logo Props */
+}
+
+export type LogoProps = {
+  logo?: {
+    asset?: {
+      _type: string;
+      _ref: string;
+    };
+    alt?: string;
+  };
+};

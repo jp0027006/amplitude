@@ -8,7 +8,7 @@ const NavItems = ({
   setHoveredNavItem,
 }: NavItemsProps) => {
   return (
-    <div className="hidden w-full md:block md:w-auto mr-10">
+    <div className="hidden md:flex w-full md:w-auto mr-10">
       <ul className="font-medium flex items-center flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
         {navItems.map((navItem, navItemIndex) => (
           <li

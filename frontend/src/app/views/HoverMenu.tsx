@@ -48,8 +48,7 @@ const HoverMenu = ({ hoverItems }: HoverMenuProps) => (
         <div className="flex flex-row">
           <div>
             <div className="flex w-full flex-col gap-8 lg:flex-row">
-              {hoverItem.LinkDescriptionIcon &&
-                Object.entries(
+              {hoverItem.LinkDescriptionIcon && Object.entries(
                   hoverItem.LinkDescriptionIcon.reduce((acc, item) => {
                     if (!acc[item.linkCategory]) {
                       acc[item.linkCategory] = [];
@@ -82,7 +81,7 @@ const HoverMenu = ({ hoverItems }: HoverMenuProps) => (
                               : undefined
                           )}
                           className="h-8"
-                          alt={item.linkIcon?.alt || "Logo"}
+                          alt={item.linkIcon?.alt || "Icon"}
                         />
                         <div className="flex flex-col gap-0.5">
                           <span className="text-base font-semibold leading-6 hover:text-blue-600">

@@ -1,15 +1,6 @@
 import Link from "next/link";
 import { urlFor } from "@/sanity/utils/urlFor";
-
-export type LogoProps = {
-  logo?: {
-    asset?: {
-      _type: string;
-      _ref: string;
-    };
-    alt?: string;
-  };
-};
+import { LogoProps } from "@/types/header/header";
 
 export default function Logo({ logo }: LogoProps) {
   return (
