@@ -25,6 +25,12 @@ export default {
       title: 'Hover Button',
       type: 'button',
     },
+    {
+      name: 'LinkDescriptionIcon',
+      title: 'Nav Hover Links',
+      type: 'array',
+      of: [{type: 'LinkDescriptionIcon'}],
+    },
   ],
   preview: {
     select: {

@@ -15,7 +15,6 @@ export default {
       title: "Link",
       type: "link",
     },
-    
     {
       name: 'navhoverItems',
       title: 'Nav Hover Items',

@@ -12,8 +12,6 @@ function urlFor(source: { asset: { _ref: string } } | undefined) {
 }
 
 function Header({ headeritems }: HeaderProps) {
-  console.log(headeritems);
-
   const [hoveredNavItem, setHoveredNavItem] = useState<number | null>(null);
 
   return (
@@ -44,7 +42,6 @@ function Header({ headeritems }: HeaderProps) {
                     key={navItemIndex}
                     className="relative rounded-full"
                     onMouseEnter={() => setHoveredNavItem(navItemIndex)}
-                    onMouseLeave={() => setHoveredNavItem(null)}
                   >
                     <Link
                       href={navItem.link?.link}
@@ -52,45 +49,130 @@ function Header({ headeritems }: HeaderProps) {
                     >
                       <span>{navItem.title}</span>
                     </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
 
-                    {/* Check and display navhoverItems if present */}
-                    {navItem.navhoverItems && hoveredNavItem === navItemIndex && (
-                      <div className="absolute top-full p-4 bg-white shadow-md rounded-lg w-72">
-                        {navItem.navhoverItems.map((hoverItem, hoverIndex) => (
-                          <div key={hoverIndex} className="flex flex-col card rounded-tr-xl rounded-bl-xl">
-
-                            {/* Hover Image */}
-                            {hoverItem.hoverImage && hoverItem.hoverImage.asset && (
+        {headeritems.navItems && (
+          <div onMouseLeave={() => setHoveredNavItem(null)}>
+            {headeritems.navItems.map((navItem, navItemIndex) => (
+              <div key={navItemIndex}>
+                {/* Hover Dropdown Menu */}
+                {navItem.navhoverItems && hoveredNavItem === navItemIndex && (
+                  <div key={navItemIndex} className="absolute left-0 top-16 mt-2 w-[1535px] bg-white border border-gray-200 p-6 px-20 flex gap-8">
+                    {navItem.navhoverItems.map((hoverItem, hoverIndex) => (
+                      <div key={hoverIndex} className="flex flex-row gap-10">
+                        <div
+                          key={hoverIndex}
+                          className="flex flex-col card rounded-tr-2xl rounded-bl-2xl w-72"
+                        >
+                          {/* Hover Image */}
+                          {hoverItem.hoverImage &&
+                            hoverItem.hoverImage.asset && (
                               <img
-                              src={urlFor(
-                                hoverItem.hoverImage.asset._ref
-                                  ? { asset: { _ref: hoverItem.hoverImage.asset._ref } }
-                                  : undefined
-                              )}
+                                src={urlFor(
+                                  hoverItem.hoverImage.asset._ref
+                                    ? {
+                                        asset: {
+                                          _ref: hoverItem.hoverImage.asset._ref,
+                                        },
+                                      }
+                                    : undefined
+                                )}
                                 alt={hoverItem.hoverImage.alt || "Hover image"}
                                 className="w-full"
                                 width="100"
                                 height="100"
                               />
                             )}
-                            <div className="px-6 py-4 flex flex-col gap-2">
-                            <h1 className="font-medium text-[22px] leading-[26px]">{hoverItem.hoverTitle}</h1>
-                            <span className="text-[14px] leading-[20px]">{hoverItem.hoverDescription}</span>
+                          <div className="px-6 py-4 flex flex-col gap-2">
+                            <h1 className="font-medium text-[22px] leading-[26px]">
+                              {hoverItem.hoverTitle}
+                            </h1>
+                            <span className="text-[14px] leading-[20px]">
+                              {hoverItem.hoverDescription}
+                            </span>
                             <Link
-                                href={hoverItem.hoverButton.link.link}
-                                className="mt-4 inline-block text-blue-600 font-semibold text-base"
-                              >
-                                {hoverItem.hoverButton.label}
-                              </Link>
+                              href={hoverItem.hoverButton.link.link}
+                              className="mt-4 inline-block text-blue-600 font-semibold text-base"
+                            >
+                              {hoverItem.hoverButton.label}
+                            </Link>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-row">
+                          <div>
+                            <div className="flex w-full flex-col gap-16 lg:flex-row">
+                              {hoverItem.LinkDescriptionIcon &&
+                                Object.entries(
+                                  hoverItem.LinkDescriptionIcon.reduce(
+                                    (acc, item) => {
+                                      if (!acc[item.linkCategory]) {
+                                        acc[item.linkCategory] = [];
+                                      }
+                                      acc[item.linkCategory].push(item);
+                                      return acc;
+                                    },
+                                    {} as Record<
+                                      string,
+                                      typeof hoverItem.LinkDescriptionIcon
+                                    >
+                                  )
+                                ).map(([category, items], categoryIndex) => (
+                                  <div
+                                    key={categoryIndex}
+                                    className="flex flex-col gap-x-5 gap-y-3 "
+                                  >
+                                    <h3 className="text-xs text-gray-500 uppercase font-medium mb-2">
+                                      {category}
+                                    </h3>
+                                    {items.map(
+                                      (item, LinkDescriptionIconIndex) => (
+                                        <Link
+                                          key={LinkDescriptionIconIndex}
+                                          href={item.labelLink.link.link}
+                                          className="space-x-3 rtl:space-x-reverse mr-4 flex"
+                                        >
+                                          <img
+                                            src={urlFor(
+                                              item.linkIcon?.asset?._ref
+                                                ? {
+                                                    asset: {
+                                                      _ref: item.linkIcon?.asset
+                                                        ?._ref,
+                                                    },
+                                                  }
+                                                : undefined
+                                            )}
+                                            className="h-8"
+                                            alt={item.linkIcon?.alt || "Logo"}
+                                          />
+                                          <div className="flex flex-col gap-0.5">
+                                            <span className="text-base font-semibold leading-6 hover:text-blue-600">
+                                              {item.labelLink.label}
+                                            </span>
+                                            <span className="text-xs leading-4">
+                                              {item.linkDescription}
+                                            </span>
+                                          </div>
+                                        </Link>
+                                      )
+                                    )}
+                                  </div>
+                                ))}
                             </div>
                           </div>
-                        ))}
+                        </div>
                       </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         )}
 
@@ -124,7 +206,6 @@ function Header({ headeritems }: HeaderProps) {
             </ul>
           </div>
         )}
-
       </div>
     </nav>
   );
