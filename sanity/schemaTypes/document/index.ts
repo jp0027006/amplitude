@@ -1,7 +1,7 @@
 import header from "./header";
 import navItem from "./header/navItems";
-import navhoverItems from "./header/navhoverItems";
-import navButtons from "./header/navButtons";
+import ctas from "./header/CTAs";
+import submenuItems from "./header/submenuItems";
 
 
-export const documentTypes = [header, navItem, navhoverItems, navButtons]
+export const documentTypes = [header, navItem, submenuItems, ctas]

@@ -1,13 +1,13 @@
 import customImage from "./customImage";
 import labelLink from "./labelLink";
-import button from "./button";
 import link from "./link";
+import cta from "./cta";
 
 
 export const globalTypes = [
   labelLink,
   customImage,
-  button,
+  cta,
   link,
 ];
 export default globalTypes;

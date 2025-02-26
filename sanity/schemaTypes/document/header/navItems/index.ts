@@ -1,30 +1,30 @@
-import { SchemaTypeDefinition } from "sanity";
+import {SchemaTypeDefinition} from 'sanity'
 
 export default {
-  name: "navItem",
-  title: "Nav Item",
-  type: "object",
+  name: 'navItem',
+  title: 'Nav Item',
+  type: 'object',
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      name: "link",
-      title: "Link",
-      type: "link",
+      name: 'link',
+      title: 'Link',
+      type: 'link',
     },
     {
-      name: 'navhoverItems',
-      title: 'Nav Hover Items',
+      name: 'submenuItems',
+      title: 'Sub Menu Items',
       type: 'array',
-      of: [{type: 'navhoverItem'}],
+      of: [{type: 'submenuItem'}],
     },
   ],
   preview: {
     select: {
-      title: "title",
+      title: 'title',
     },
   },
-} as SchemaTypeDefinition;
+} as SchemaTypeDefinition

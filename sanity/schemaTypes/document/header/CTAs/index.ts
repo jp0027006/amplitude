@@ -1,24 +1,24 @@
 import { SchemaTypeDefinition } from "sanity";
 
 export default {
-  name: "navButtons",
-  title: "Nav Buttons",
+  name: "ctas",
+  title: "CTAs",
   type: "object",
   fields: [
     {
-      name: "button",
-      title: "Nav Button",
-      type: "button",
+      name: "cta",
+      title: "CTA",
+      type: "cta",
     },
   ],
   preview: {
     select: {
-      buttonLabel: "button.label",
+      ctaLabel: "cta.label",
     },
     prepare(selection) {
-      const { buttonLabel } = selection;
+      const { ctaLabel } = selection;
       return {
-        title: buttonLabel,
+        title: ctaLabel,
       };
     },
   },

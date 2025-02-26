@@ -1,6 +1,6 @@
 import { CustomImageType } from "../customImage";
+import { ImageTitleDescriptionLinkType } from "../ImageTitleDescriptionLink";
 import { LinkDescriptionIconType } from "../LinkDescriptionIcon";
-import { ButtonVariantType } from "../navButton";
 
 {
   /* Nav Items */
@@ -13,27 +13,16 @@ export interface NavItemType {
     _type: "link";
     link: string;
   };
-  navhoverItems: navhoverItemType[];
+  submenuItems: submenuItemType[];
 }
 
 {
-  /* Nav Hover Item */
+  /* Sub Menu Item */
 }
 
-export interface navhoverItemType {
-  _type: "navhoverItem";
-  hoverTitle: string;
-  hoverDescription: string;
-  hoverImage?: CustomImageType;
-  hoverButton: {
-    _type: "button";
-    label?: string;
-    link?: {
-      _type: "link";
-      link: string;
-    };
-    variant?: ButtonVariantType;
-  };
+export interface submenuItemType {
+  _type: "submenuItem";
+  ImageTitleDescriptionLink: ImageTitleDescriptionLinkType; 
   LinkDescriptionIcon: LinkDescriptionIconType[];
 }
 
@@ -43,14 +32,14 @@ export interface navhoverItemType {
 
 export interface NavItemsProps {
   navItems: NavItemType[];
-  hoveredNavItem: number | null;
-  setHoveredNavItem: (index: number) => void;
+  submenuItem: number | null;
+  setSubMenuItem: (index: number) => void;
 }
 
 {
-  /* Hover Menu Props */
+  /* Sub Menu Props */
 }
 
-export interface HoverMenuProps {
-  hoverItems: navhoverItemType[];
+export interface SubMenuProps {
+  submenuItems: submenuItemType[];
 }

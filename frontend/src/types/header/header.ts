@@ -1,5 +1,5 @@
+import { CTAType } from "../CTA";
 import { CustomImageType } from "../customImage";
-import { NavButtonType } from "../navButton";
 import { NavItemType } from "../navItems";
 
 {
@@ -10,7 +10,7 @@ export interface HeaderType {
   _type: "header";
   logo?: CustomImageType;
   navItems: NavItemType[];
-  navButtons: NavButtonType[];
+  ctas: CTAType[];
 }
 
 {

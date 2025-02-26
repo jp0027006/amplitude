@@ -5,7 +5,7 @@ import { CustomImageType } from "../customImage";
 }
 
 export interface LinkDescriptionIconType {
-  linkCategory: linkCategoryType;
+  linkCategory: string;
   linkIcon?: CustomImageType;
   labelLink: {
     _type: "labelLink";
@@ -17,8 +17,3 @@ export interface LinkDescriptionIconType {
   };
   linkDescription: string;
 }
-
-{
-  /* Link Category */
-}
-export type linkCategoryType = "insights" | "action" | "data";

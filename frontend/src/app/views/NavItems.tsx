@@ -1,11 +1,11 @@
 import Link from "next/link";
-import HoverMenu from "../views/HoverMenu";
 import { NavItemsProps } from "@/types/navItems";
+import SubMenu from "./SubMenu";
 
 const NavItems = ({
   navItems,
-  hoveredNavItem,
-  setHoveredNavItem,
+  submenuItem,
+  setSubMenuItem,
 }: NavItemsProps) => {
   return (
     <div className="hidden md:flex w-full md:w-auto mr-10">
@@ -14,7 +14,7 @@ const NavItems = ({
           <li
             key={navItemIndex}
             className="relative rounded-full"
-            onMouseEnter={() => setHoveredNavItem(navItemIndex)}
+            onMouseEnter={() => setSubMenuItem(navItemIndex)}
           >
             <Link
               href={navItem.link?.link}
@@ -27,11 +27,11 @@ const NavItems = ({
       </ul>
 
       {navItems && (
-        <div onMouseLeave={() => setHoveredNavItem(-1)}>
+        <div onMouseLeave={() => setSubMenuItem(-1)}>
           {navItems.map((navItem, navItemIndex) => (
             <div key={navItemIndex}>
-              {navItem.navhoverItems && hoveredNavItem === navItemIndex && (
-                <HoverMenu hoverItems={navItem.navhoverItems} />
+              {navItem.submenuItems && submenuItem === navItemIndex && (
+                <SubMenu submenuItems={navItem.submenuItems} />
               )}
             </div>
           ))}

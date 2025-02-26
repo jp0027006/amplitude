@@ -22,10 +22,10 @@ export default {
       of: [{type: 'navItem'}],
     },
     {
-      name: 'navButtons',
+      name: 'ctas',
       title: 'CTA',
       type: 'array',
-      of: [{type: 'navButtons'}],
+      of: [{type: 'ctas'}],
     },
   ],
 } as SchemaTypeDefinition

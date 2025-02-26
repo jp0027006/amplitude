@@ -1,52 +1,5 @@
 import {SchemaTypeDefinition} from 'sanity'
 
-const linkCategory = [
-  {
-    title: 'Insights',
-    value: 'insights',
-  },
-  {
-    title: 'Action',
-    value: 'action',
-  },
-  {
-    title: 'Data',
-    value: 'data',
-  },
-  {
-    title: 'Industry',
-    value: 'industry',
-  },
-  {
-    title: 'Use Case',
-    value: 'usecase',
-  },
-  {
-    title: 'Team',
-    value: 'team',
-  },
-  {
-    title: 'Size',
-    value: 'size',
-  },
-  {
-    title: 'Learn',
-    value: 'learn',
-  },
-  {
-    title: 'Connect',
-    value: 'connect',
-  },
-  {
-    title: 'Support & Services',
-    value: 'support & services',
-  },
-  {
-    title: 'Tools',
-    value: 'tools',
-  },
-]
-
 export default {
   name: 'LinkDescriptionIcon',
   title: 'Link With Description & Icon',
@@ -54,9 +7,8 @@ export default {
   fields: [
     {
       name: 'linkCategory',
-      type: 'string',
       title: 'Link Category',
-      options: {list: linkCategory, direction: 'vertical', layout: 'radio'},
+      type: 'string',
     },
     {
       name: 'linkIcon',

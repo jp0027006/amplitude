@@ -1,4 +1,4 @@
-const buttonVariant = [
+const ctaVariant = [
   {
     title: "Blue",
     value: "blue",
@@ -15,16 +15,16 @@ const buttonVariant = [
 
 
 export default {
-  name: 'button',
-  title: 'Button',
+  name: 'cta',
+  title: 'CTA',
   type: 'object',
   fields: [
     {
       name: 'variant',
       title: 'Variant',
       type: 'string',
-      initialValue: 'green',
-      options: { list: buttonVariant, direction: 'vertical', layout: 'radio' },
+      initialValue: 'blue',
+      options: { list: ctaVariant, direction: 'vertical', layout: 'radio' },
     },
     {
       name: 'label',
