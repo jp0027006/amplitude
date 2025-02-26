@@ -1,4 +1,3 @@
-import { CustomImageType } from "../customImage";
 import { ImageTitleDescriptionLinkType } from "../ImageTitleDescriptionLink";
 import { LinkDescriptionIconType } from "../LinkDescriptionIcon";
 
@@ -22,7 +21,7 @@ export interface NavItemType {
 
 export interface submenuItemType {
   _type: "submenuItem";
-  ImageTitleDescriptionLink: ImageTitleDescriptionLinkType; 
+  ImageTitleDescriptionLink: ImageTitleDescriptionLinkType;
   LinkDescriptionIcon: LinkDescriptionIconType[];
 }
 

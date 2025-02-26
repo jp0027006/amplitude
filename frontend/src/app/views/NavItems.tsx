@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NavItemsProps } from "@/types/navItems";
 import SubMenu from "./SubMenu";
 
+
 const NavItems = ({
   navItems,
   submenuItem,
