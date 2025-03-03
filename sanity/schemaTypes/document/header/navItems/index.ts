@@ -18,8 +18,7 @@ export default {
     {
       name: 'submenuItems',
       title: 'Sub Menu Items',
-      type: 'array',
-      of: [{type: 'submenuItem'}],
+      type: 'submenuItem',
     },
   ],
   preview: {

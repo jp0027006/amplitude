@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
-import { HeaderProps } from "@/types/header/header";
-import Logo from "@/app/views/Logo";
-import NavItems from "@/app/views/NavItems";
 import CTA from "@/app/views/CTA";
+import Logo from "@/app/views/Logo";
 import MobileMenu from "@/app/views/MobileMenu";
+import NavItems from "@/app/views/NavItems";
+import { HeaderProps } from "@/types/header/header";
+import { useState } from "react";
 
 function Header({ headeritems }: HeaderProps) {
   const [submenuItem, setSubMenuItem] = useState<number>(-1);
@@ -39,30 +39,39 @@ function Header({ headeritems }: HeaderProps) {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden flex items-center p-2"
           onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
         >
-          <svg 
-            className="w-6 h-6" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <MobileMenu 
-            headeritems={headeritems} 
+          <MobileMenu
+            headeritems={headeritems}
             setMobileMenuOpen={setMobileMenuOpen}
           />
         )}

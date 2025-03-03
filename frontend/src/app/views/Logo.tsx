@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { urlFor } from "@/sanity/utils/urlFor";
 import { LogoProps } from "@/types/header/header";
+import Link from "next/link";
 
 export default function Logo({ logo }: LogoProps) {
   return (

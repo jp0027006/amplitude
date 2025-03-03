@@ -12,7 +12,7 @@ export interface NavItemType {
     _type: "link";
     link: string;
   };
-  submenuItems: submenuItemType[];
+  submenuItems: submenuItemType;
 }
 
 {
@@ -40,5 +40,5 @@ export interface NavItemsProps {
 }
 
 export interface SubMenuProps {
-  submenuItems: submenuItemType[];
+  submenuItems: submenuItemType;
 }

@@ -1,4 +1,4 @@
-import {SchemaTypeDefinition} from 'sanity'
+import { SchemaTypeDefinition } from 'sanity'
 
 export default {
   name: 'LinkDescriptionIcon',
@@ -26,4 +26,15 @@ export default {
       title: 'Link Description',
     },
   ],
-} as SchemaTypeDefinition
+  preview: {
+    select: {
+      linkLabel: 'labelLink.label',
+    },
+    prepare(selection) {
+      const { linkLabel } = selection;
+      return {
+        title: linkLabel,
+      };
+    },
+  },
+} as SchemaTypeDefinition;

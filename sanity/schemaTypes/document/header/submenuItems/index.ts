@@ -6,40 +6,27 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'submenuOption',
-      title: 'Choose Sub Menu Option',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Sub Menu Link Section', value: 'linkDescriptionIcon'},
-          {title: 'Sub Menu Image Section', value: 'ImageTitleDescriptionLink'},
-        ],
-        layout: 'radio',
-      },
+      name: 'ImageTitleDescriptionLink',
+      title: 'Image Title Description Link Group',
+      type: 'ImageTitleDescriptionLink',
+      group: 'ImageTitleDescriptionLinkGroup',
     },
     {
       name: 'LinkDescriptionIcon',
-      title: 'Sub Menu Link Section',
+      title: 'Link Description Icon Group',
       type: 'array',
       of: [{type: 'LinkDescriptionIcon'}],
-      hidden: ({parent}) => parent?.submenuOption !== 'linkDescriptionIcon',
-    },
-    {
-      name: 'ImageTitleDescriptionLink',
-      title: 'Sub Menu Image Section',
-      type: 'ImageTitleDescriptionLink',
-      hidden: ({parent}) => parent?.submenuOption !== 'ImageTitleDescriptionLink',
+      group: 'LinkDescriptionIconGroup',
     },
   ],
-  preview: {
-    select: {
-      title: 'submenuOption',
+  groups: [
+    {
+      name: 'ImageTitleDescriptionLinkGroup',
+      title: 'Image Submenu',
     },
-    prepare(selection) {
-      const {title} = selection
-      return {
-        title: title === 'linkDescriptionIcon' ? 'Sub Menu Link Section' : 'Sub Menu Image Section',
-      }
+    {
+      name: 'LinkDescriptionIconGroup',
+      title: 'Link Submenu',
     },
-  },
+  ],
 } as SchemaTypeDefinition
