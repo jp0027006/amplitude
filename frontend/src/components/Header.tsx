@@ -13,7 +13,6 @@ function Header({ headeritems }: HeaderProps) {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
   return (
     <nav className="bg-transparent hover:bg-white transition-colors ease-linear duration-200">
       <div className="max-w-screen-2xl flex items-center justify-between p-4 md:px-12 lg:px-24">
@@ -23,7 +22,7 @@ function Header({ headeritems }: HeaderProps) {
 
           {/* Desktop Nav Items */}
           {headeritems.navItems && (
-            <div className="hidden md:block">
+            <div className="hidden md:block z-50">
               <NavItems
                 navItems={headeritems.navItems}
                 submenuItem={submenuItem}
