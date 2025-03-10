@@ -1,32 +1,30 @@
-import { SchemaTypeDefinition } from "sanity";
+import {SchemaTypeDefinition} from 'sanity'
 
 export default {
-  name: "page",
-  title: "Page",
-  type: "document",
+  name: 'page',
+  title: 'Page',
+  type: 'document',
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 200,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
     },
     {
-      name: "pagelink",
-      title: "Link",
+      name: 'pagelink',
+      title: 'Link',
       type: 'array',
-      of: [
-        {type: 'labelLink'},
-      ],
+      of: [{type: 'labelLink'}],
     },
     {
       name: 'content',
@@ -34,23 +32,26 @@ export default {
       type: 'array',
       of: [
         {
-          type: "block",
+          type: 'block',
           styles: [
-            { title: "Normal", value: "normal" },
-            { title: "Heading1", value: "h1" },
-            { title: "Heading2", value: "h2" },
-            { title: "Heading3", value: "h3" },
-            { title: "Heading4", value: "h4" },
-            { title: "Heading5", value: "h5" },
-            { title: "Heading6", value: "h6" },
-            { title: "Quote", value: "blockquote" },
+            {title: 'Normal', value: 'normal'},
+            {title: 'Heading1', value: 'h1'},
+            {title: 'Heading2', value: 'h2'},
+            {title: 'Heading3', value: 'h3'},
+            {title: 'Heading4', value: 'h4'},
+            {title: 'Heading5', value: 'h5'},
+            {title: 'Heading6', value: 'h6'},
+            {title: 'Quote', value: 'blockquote'},
           ],
           lists: [
             {
-              title: "Bullet",
-              value: "bullet",
+              title: 'Bullet',
+              value: 'bullet',
             },
-            { title: "Number", value: "number" },
+            {
+              title: 'Number',
+              value: 'number',
+            },
           ],
           marks: {
             annotations: [
@@ -61,10 +62,10 @@ export default {
                 fields: [
                   {
                     name: 'href',
-                    type: "contentLink",
-                    title: 'URL'
-                  }
-                ]
+                    type: 'contentLink',
+                    title: 'URL',
+                  },
+                ],
               },
             ],
           },
@@ -74,13 +75,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
+      title: 'title',
     },
     prepare(select) {
-      const { title } = select;
+      const {title} = select
       return {
-        title: title || "Blogs",
-      };
+        title: title || 'Page',
+      }
     },
   },
-} as SchemaTypeDefinition;
+} as SchemaTypeDefinition

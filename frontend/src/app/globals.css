@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: rgba(241, 244, 249, 1);
+body {
+  background-color: rgba(241, 244, 249, 1);
 }
 
-.card{
-    background-color: rgba(241, 244, 249, 1);
+.card {
+  background-color: rgba(241, 244, 249, 1);
 }
 html {
-    scroll-behavior: smooth;
-  }
-  
+  scroll-behavior: smooth;
+}

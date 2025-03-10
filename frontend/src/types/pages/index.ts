@@ -34,9 +34,9 @@ export interface Pagelink {
 export interface Link {
   _type: "link";
   type: string;
-  anchor?: string; // optional as not all link types have an anchor
-  link?: string; // optional for external links
-  page?: PageReference; // optional for references to other pages
+  anchor?: string;
+  link?: string;
+  page?: PageReference;
   openTheLinkinANewWindow:boolean;
 }
 

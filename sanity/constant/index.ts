@@ -27,3 +27,14 @@ export const ctaVariant = [
     value: 'outline',
   },
 ]
+
+export const contentLinkTypeOptions = [
+  {
+    title: 'Reference',
+    value: 'reference',
+  },
+  {
+    title: 'External Reference',
+    value: 'externalReference',
+  },
+]
