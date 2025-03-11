@@ -1,13 +1,16 @@
 import Dashboard from "@/components/Dashboard";
 import Header from "@/components/Header";
+import { LAYOUT_QUERY } from "@/lib/query";
 import { client } from "@/sanity/client";
-import { HEADER_QUERY, PAGE_QUERY } from "@/sanity/lib/query";
 import { HeaderType } from "@/types/header/header";
 import { PageType } from "@/types/pages";
 
 export default async function Page() {
-  const headeritems: HeaderType = await client.fetch(HEADER_QUERY);
-  const pages: PageType = await client.fetch(PAGE_QUERY);
+  const layout = await client.fetch(LAYOUT_QUERY);
+  const { header, page } = layout;
+  const headeritems: HeaderType = header;
+  const pages: PageType = page;
+
   return (
     <>
       <Header headeritems={headeritems} />

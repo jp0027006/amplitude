@@ -42,3 +42,25 @@ export interface NavItemsProps {
 export interface SubMenuProps {
   submenuItems: submenuItemType;
 }
+
+export type ImageProps = {
+  image?: {
+    asset?: {
+      _type: string;
+      _ref: string;
+    };
+    alt?: string;
+  };
+};
+
+export type SubMenuLinkImageProps = {
+  image: {
+    linkIcon?: {
+      asset?: {
+        _type: string;
+        _ref: string;
+      };
+      alt?: string;
+    };
+  };
+};
